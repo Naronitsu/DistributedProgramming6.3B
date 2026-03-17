@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="AuthorService"
+ targetNamespace="http://example.com/authorservice"
+ xmlns="http://schemas.xmlsoap.org/wsdl/"
+ xmlns:tns="http://example.com/authorservice"
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+ <types>
+  <xsd:schema targetNamespace="http://example.com/authorservice">
+
+   <xsd:element name="getAuthorById">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="id" type="xsd:int"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+
+   <xsd:element name="getAuthorByIdResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="id" type="xsd:int"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="found" type="xsd:boolean"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+
+   <xsd:element name="getAllAuthors"/>
+   <xsd:element name="getAllAuthorsResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="authors">
+       <xsd:complexType>
+        <xsd:sequence>
+         <xsd:element name="author" minOccurs="0" maxOccurs="unbounded">
+          <xsd:complexType>
+           <xsd:sequence>
+            <xsd:element name="id" type="xsd:int"/>
+            <xsd:element name="name" type="xsd:string"/>
+           </xsd:sequence>
+          </xsd:complexType>
+         </xsd:element>
+        </xsd:sequence>
+       </xsd:complexType>
+      </xsd:element>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+
+   <xsd:element name="createAuthor">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="name" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+
+   <xsd:element name="createAuthorResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="id" type="xsd:int"/>
+      <xsd:element name="name" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+
+  </xsd:schema>
+ </types>
+
+ <message name="getAuthorByIdRequest">
+  <part name="parameters" element="tns:getAuthorById"/>
+ </message>
+
+ <message name="getAuthorByIdResponse">
+  <part name="parameters" element="tns:getAuthorByIdResponse"/>
+ </message>
+
+ <message name="getAllAuthorsRequest">
+  <part name="parameters" element="tns:getAllAuthors"/>
+ </message>
+
+ <message name="getAllAuthorsResponse">
+  <part name="parameters" element="tns:getAllAuthorsResponse"/>
+ </message>
+
+ <message name="createAuthorRequest">
+  <part name="parameters" element="tns:createAuthor"/>
+ </message>
+
+ <message name="createAuthorResponse">
+  <part name="parameters" element="tns:createAuthorResponse"/>
+ </message>
+
+ <portType name="AuthorPortType">
+
+  <operation name="getAuthorById">
+   <input message="tns:getAuthorByIdRequest"/>
+   <output message="tns:getAuthorByIdResponse"/>
+  </operation>
+
+  <operation name="getAllAuthors">
+   <input message="tns:getAllAuthorsRequest"/>
+   <output message="tns:getAllAuthorsResponse"/>
+  </operation>
+
+  <operation name="createAuthor">
+   <input message="tns:createAuthorRequest"/>
+   <output message="tns:createAuthorResponse"/>
+  </operation>
+
+ </portType>
+
+ <binding name="AuthorBinding" type="tns:AuthorPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+  <operation name="getAuthorById">
+   <soap:operation soapAction="getAuthorById"/>
+   <input><soap:body use="literal"/></input>
+   <output><soap:body use="literal"/></output>
+  </operation>
+
+  <operation name="getAllAuthors">
+   <soap:operation soapAction="getAllAuthors"/>
+   <input><soap:body use="literal"/></input>
+   <output><soap:body use="literal"/></output>
+  </operation>
+
+  <operation name="createAuthor">
+   <soap:operation soapAction="createAuthor"/>
+   <input><soap:body use="literal"/></input>
+   <output><soap:body use="literal"/></output>
+  </operation>
+
+ </binding>
+
+ <service name="AuthorService">
+  <port name="AuthorPort" binding="tns:AuthorBinding">
+   <soap:address location="http://localhost:8001/wsdl"/>
+  </port>
+ </service>
+
+</definitions>

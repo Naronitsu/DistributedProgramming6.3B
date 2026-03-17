@@ -1,0 +1,102 @@
+{
+  "info": {
+    "_postman_id": "b3fcbf08-5f6b-4b59-83b9-123456789abc",
+    "name": "PC Package API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Test RPC Node.js endpoints for calculating and creating PC packages"
+  },
+  "item": [
+    {
+      "name": "Calculate PC Package - Success",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"harddisk\": \"512GB\",\n  \"ram\": \"16GB\",\n  \"monitor\": \"27inch\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/calculatePCPackage",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["calculatePCPackage"]
+        }
+      }
+    },
+    {
+      "name": "Calculate PC Package - Error",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"harddisk\": \"2TB\",\n  \"ram\": \"16GB\",\n  \"monitor\": \"27inch\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/calculatePCPackage",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["calculatePCPackage"]
+        }
+      }
+    },
+    {
+      "name": "Create PC Package - Success",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"harddisk\": \"256GB\",\n  \"ram\": \"8GB\",\n  \"monitor\": \"22inch\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/createPCPackage",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["createPCPackage"]
+        }
+      }
+    },
+    {
+      "name": "Create PC Package - Error",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"harddisk\": \"128GB\",\n  \"ram\": \"8GB\",\n  \"monitor\": \"22inch\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/createPCPackage",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["createPCPackage"]
+        }
+      }
+    }
+  ]
+}
