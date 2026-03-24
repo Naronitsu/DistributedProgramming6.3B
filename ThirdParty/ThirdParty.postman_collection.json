@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "9c04f5ec-8e7e-4fb7-a671-9d59af76395d",
+    "name": "ThirdParty API",
+    "description": "Collection for testing the ThirdParty Express server endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "server.js",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Posts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Post Titles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/postTitles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "postTitles"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "exercise-server.js",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{exerciseBaseUrl}}/",
+              "host": [
+                "{{exerciseBaseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Malta Universities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{exerciseBaseUrl}}/malta",
+              "host": [
+                "{{exerciseBaseUrl}}"
+              ],
+              "path": [
+                "malta"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get MCAST Universities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{exerciseBaseUrl}}/mcast",
+              "host": [
+                "{{exerciseBaseUrl}}"
+              ],
+              "path": [
+                "mcast"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "exerciseBaseUrl",
+      "value": "http://localhost:3001"
+    }
+  ]
+}
